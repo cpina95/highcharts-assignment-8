@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset ="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Crime Rates in U.S. </title>
+
+<link rel="stylesheet" href="styles/normalize.css">
+<link rel="stylesheet" href="styles/index.css">
+
+<!-- add the Highcharts script elements here -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/themes/dark-unica.js"></script>
+</head>
+
+<body>
+<h1>The Change in Crime in the United States from 2007 to 2016</h1>
+<h3> by Christy Piña </h3> 
+
+<p> In today's world, it feels like every day we hear about another crime that takes place, violent or non-violent, though the violent ones are the ones that tend to be on our radars more. I wanted to know if crimes were happening more often today or we're just hearing about them more often than we used to. According to <a href="https://ucr.fbi.gov/ucr-publications">FBI's crime data</a> page, crime rates in general actually decreased in the last 10 years. So statistically, we're just hearing about crime more than we used to. A possible explanation is that media is able to spread the word much easier now than in 2007. Twitter and Facebook allow for news to be shared much sooner, almost immediately after something happens. My graphs below compare crime rates in general across the 10 years and also the specific types of crimes and how often they took place.
+ </p>
+
+<div id="container" style="width:100%; height:400px;"></div>
+
+<script>
+
+Highcharts.chart('container', {
+      chart: {
+          type: 'line'
+      },
+      title: {
+          text: 'Crime Rates from 2007 to 2016'
+      },
+      xAxis: {
+          categories: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016']
+      },
+      yAxis: {
+          title: {
+              text: 'Rate (in millions)'
+          }
+      },
+      series: [{
+          name: 'Violent Crimes',
+          data: [1.4, 1.4, 1.3, 1.2, 1.2, 1.2, 1.2, 1.17, 1.2, 1.2]
+      }, {
+          name: 'Property Crimes',
+          data: [9.8, 9.8, 9.3, 9.1, 9.1, 9.0, 8.6, 8.3, 8.0, 7.9]
+      }]
+});
+
+</script>
+
+<p> This data was gathered from <a href="https://ucr.fbi.gov/ucr-publications">FBI's crime database.</a>
+
+<div id="chart2" style="width:100%; height:400px;"></div>
+
+<script>
+Highcharts.chart('chart2', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Types of Crimes from 2007 to 2016'
+    },
+    subtitle: {
+        text: '<a href="https://ucr.fbi.gov/">Source: https://ucr.fbi.gov/</a>'
+    },
+    xAxis: {
+        categories: [
+            '2007',
+            '2008',
+            '2009',
+            '2010',
+            '2011',
+            '2012',
+            '2013',
+            '2014',
+            '2015',
+            '2016',
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Number of offenses known'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+      name: 'Murder',
+     data: [15872, 15282, 14604, 13941, 14022, 14173, 13483, 13280, 14856, 16470]
+
+ }, {
+     name: 'Rape',
+     data: [81398, 80797, 81992, 80031, 78287, 78174, 89830, 101146, 112996, 121337]
+
+ }, {
+     name: 'Robbery',
+     data: [421286, 423023, 396593, 352613, 342282, 339997, 329441, 307590, 308504, 321464]
+
+ }, {
+     name: 'Aggravated Assault',
+     data: [791506, 773591, 761593, 734254, 711997, 720577, 681597, 685548, 717755, 763994]
+
+ }, {
+     name: 'Burglary',
+     data: [1987601, 2042369, 2063466, 2025747, 2055979, 1959909, 1781179, 1579038, 1463001, 1421596]
+
+ }, {
+     name: 'Larceny-theft',
+     data: [6008141, 6043976, 5946981, 5814440, 5814034, 5754377, 5586992, 5353190, 5317451, 5353887]
+
+ }, {
+     name: 'Motor vehicle theft',
+     data: [1031062, 907822, 764750, 704464, 683502, 686085, 665233, 646425, 668022, 739368]
+
+    }]
+});
+</script>
+
+<p> This data was gathered from <a href="https://ucr.fbi.gov/ucr-publications">FBI's crime database.</a>
+
+</body>
+
+</html>
